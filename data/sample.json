@@ -1,0 +1,9 @@
+{
+  "event_id": "092106-014-sample-001",
+  "event_type": "DINER_LINKED",
+  "aggregate_type": "meal_incident",
+  "aggregate_id": "mushroom_poisoning_watch-001",
+  "occurred_at": "2026-09-20T15:00:00+08:00",
+  "version": 1,
+  "summary": "登记毒蘑菇留观联络网的首条领域记录"
+}
