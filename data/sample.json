@@ -5,5 +5,9 @@
   "aggregate_id": "mushroom_poisoning_watch-001",
   "occurred_at": "2026-09-20T15:00:00+08:00",
   "version": 1,
-  "summary": "登记毒蘑菇留观联络网的首条领域记录"
+  "summary": "登记毒蘑菇留观联络网的首条领域记录",
+  "payload": {
+    "diner_ref": "同餐者-甲",
+    "link_basis": "reported"
+  }
 }

@@ -19,10 +19,24 @@
     "event_type": {
       "type": "string",
       "enum": [
+        "MEAL_INCIDENT_REGISTERED",
         "DINER_LINKED",
-        "SYMPTOM_RECORDED",
+        "SPECIMEN_COLLECTED",
         "SPECIMEN_TRANSFERRED",
+        "TOXIN_IDENTIFIED",
+        "CLUE_RECORDED",
+        "SYMPTOM_RECORDED",
+        "LAB_RESULT_RECORDED",
+        "LAB_RESULT_CORRECTED",
+        "MEDICAL_ORDER_ISSUED",
+        "TRANSFER_ARRANGED",
+        "CONTACT_ATTEMPTED",
+        "PROVISIONAL_IDENTITY_OPENED",
+        "IDENTITY_CONFIRMED",
+        "EPISODES_MERGED",
+        "EPISODE_MERGE_REVERTED",
         "FOLLOWUP_DUE",
+        "ESCALATION_RAISED",
         "OBSERVATION_CLOSED"
       ]
     },
@@ -50,6 +64,9 @@
     "summary": {
       "type": "string",
       "minLength": 1
+    },
+    "payload": {
+      "type": "object"
     }
   },
   "additionalProperties": true

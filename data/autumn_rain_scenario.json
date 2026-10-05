@@ -1,0 +1,395 @@
+{
+  "description": "秋雨后同桌聚餐者分散就诊的联调场景：自行离院、手机识图线索、剩余样本送检、临时身份、误并撤销、检验更正与跨院重发去重。评估时点建议取 2026-10-05T12:00:00+08:00。",
+  "events": [
+    {
+      "event_id": "evt-20261004-001",
+      "event_type": "MEAL_INCIDENT_REGISTERED",
+      "aggregate_type": "meal_incident",
+      "aggregate_id": "inc-20261003-01",
+      "occurred_at": "2026-10-04T00:55:00+08:00",
+      "version": 1,
+      "summary": "县医院急诊登记秋雨后同桌聚餐蘑菇中毒聚集事件",
+      "payload": {
+        "meal_batch": {
+          "venue": "青川县梨树沟山雨人家",
+          "meal_time": "2026-10-03T18:30:00+08:00",
+          "address": "青川县梨树沟村"
+        },
+        "collection_sites": [
+          {"site_id": "site-01", "name": "梨树沟后山采集点"}
+        ]
+      }
+    },
+    {
+      "event_id": "evt-20261004-002",
+      "event_type": "DINER_LINKED",
+      "aggregate_type": "meal_incident",
+      "aggregate_id": "inc-20261003-01",
+      "occurred_at": "2026-10-04T01:05:00+08:00",
+      "version": 2,
+      "summary": "同餐者-甲本人就诊，确认同餐关系",
+      "payload": {"diner_ref": "同餐者-甲", "link_basis": "confirmed", "episode_id": "ep-0001"}
+    },
+    {
+      "event_id": "evt-20261004-003",
+      "event_type": "DINER_LINKED",
+      "aggregate_type": "meal_incident",
+      "aggregate_id": "inc-20261003-01",
+      "occurred_at": "2026-10-04T01:10:00+08:00",
+      "version": 3,
+      "summary": "据甲口述关联同餐者-乙",
+      "payload": {"diner_ref": "同餐者-乙", "link_basis": "reported"}
+    },
+    {
+      "event_id": "evt-20261004-004",
+      "event_type": "DINER_LINKED",
+      "aggregate_type": "meal_incident",
+      "aggregate_id": "inc-20261003-01",
+      "occurred_at": "2026-10-04T01:11:00+08:00",
+      "version": 4,
+      "summary": "据甲口述关联同餐者-丙",
+      "payload": {"diner_ref": "同餐者-丙", "link_basis": "reported"}
+    },
+    {
+      "event_id": "evt-20261004-005",
+      "event_type": "DINER_LINKED",
+      "aggregate_type": "meal_incident",
+      "aggregate_id": "inc-20261003-01",
+      "occurred_at": "2026-10-04T01:12:00+08:00",
+      "version": 5,
+      "summary": "据甲口述关联同餐者-丁",
+      "payload": {"diner_ref": "同餐者-丁", "link_basis": "reported"}
+    },
+    {
+      "event_id": "evt-20261004-006",
+      "event_type": "DINER_LINKED",
+      "aggregate_type": "meal_incident",
+      "aggregate_id": "inc-20261003-01",
+      "occurred_at": "2026-10-04T01:13:00+08:00",
+      "version": 6,
+      "summary": "据甲口述关联同餐者-戊",
+      "payload": {"diner_ref": "同餐者-戊", "link_basis": "reported"}
+    },
+    {
+      "event_id": "evt-20261004-007",
+      "event_type": "SYMPTOM_RECORDED",
+      "aggregate_type": "patient_episode",
+      "aggregate_id": "ep-0001",
+      "occurred_at": "2026-10-04T01:20:00+08:00",
+      "version": 1,
+      "summary": "甲呕吐腹泻，进食后约6小时发病",
+      "payload": {
+        "symptoms": ["呕吐", "腹泻"],
+        "onset_at": "2026-10-04T00:30:00+08:00",
+        "facility": "青川县医院急诊科"
+      }
+    },
+    {
+      "event_id": "evt-20261004-007b",
+      "event_type": "IDENTITY_CONFIRMED",
+      "aggregate_type": "patient_episode",
+      "aggregate_id": "ep-0001",
+      "occurred_at": "2026-10-04T01:25:00+08:00",
+      "version": 2,
+      "summary": "甲持就诊卡确认身份",
+      "payload": {"confirmed_by": "青川县医院挂号处"}
+    },
+    {
+      "event_id": "evt-20261004-008",
+      "event_type": "LAB_RESULT_RECORDED",
+      "aggregate_type": "patient_episode",
+      "aggregate_id": "ep-0001",
+      "occurred_at": "2026-10-04T05:40:00+08:00",
+      "version": 3,
+      "summary": "甲肝功能初报 ALT 46",
+      "payload": {
+        "result_id": "r-0001-a",
+        "analyte": "ALT",
+        "value": 46,
+        "unit": "U/L",
+        "measured_at": "2026-10-04T05:30:00+08:00",
+        "facility": "青川县医院检验科"
+      }
+    },
+    {
+      "event_id": "evt-20261004-009",
+      "event_type": "LAB_RESULT_CORRECTED",
+      "aggregate_type": "patient_episode",
+      "aggregate_id": "ep-0001",
+      "occurred_at": "2026-10-04T07:10:00+08:00",
+      "version": 4,
+      "summary": "甲 ALT 标本溶血复测，46 更正为 86，原始结果保留",
+      "payload": {
+        "corrects_result_id": "r-0001-a",
+        "result_id": "r-0001-b",
+        "analyte": "ALT",
+        "value": 86,
+        "unit": "U/L",
+        "measured_at": "2026-10-04T07:05:00+08:00",
+        "reason": "原标本溶血，复测更正",
+        "facility": "青川县医院检验科"
+      }
+    },
+    {
+      "event_id": "evt-20261004-010",
+      "event_type": "SYMPTOM_RECORDED",
+      "aggregate_type": "patient_episode",
+      "aggregate_id": "ep-0001",
+      "occurred_at": "2026-10-04T08:05:00+08:00",
+      "version": 5,
+      "summary": "甲呕吐缓解，自行离院；症状暂缓不构成解除观察",
+      "payload": {
+        "symptoms": ["呕吐缓解"],
+        "onset_at": "2026-10-04T00:30:00+08:00",
+        "relieved_at": "2026-10-04T08:00:00+08:00",
+        "facility": "青川县医院急诊科"
+      }
+    },
+    {
+      "event_id": "evt-20261004-011",
+      "event_type": "MEDICAL_ORDER_ISSUED",
+      "aggregate_type": "patient_episode",
+      "aggregate_id": "ep-0001",
+      "occurred_at": "2026-10-04T08:06:00+08:00",
+      "version": 6,
+      "summary": "建议留观，患者拒绝并签字离院",
+      "payload": {
+        "order_kind": "留观建议",
+        "detail": "建议留观72小时并复查肝功能，患者拒绝，签字离院",
+        "issued_by": "值班医师-县医院",
+        "facility": "青川县医院急诊科"
+      }
+    },
+    {
+      "event_id": "evt-20261004-012",
+      "event_type": "DINER_LINKED",
+      "aggregate_type": "meal_incident",
+      "aggregate_id": "inc-20261003-01",
+      "occurred_at": "2026-10-04T09:20:00+08:00",
+      "version": 7,
+      "summary": "同餐者-乙在市一院就诊，关联留观 ep-0002",
+      "payload": {"diner_ref": "同餐者-乙", "link_basis": "confirmed", "episode_id": "ep-0002"}
+    },
+    {
+      "event_id": "evt-20261004-013",
+      "event_type": "SYMPTOM_RECORDED",
+      "aggregate_type": "patient_episode",
+      "aggregate_id": "ep-0002",
+      "occurred_at": "2026-10-04T09:30:00+08:00",
+      "version": 1,
+      "summary": "乙恶心呕吐",
+      "payload": {
+        "symptoms": ["恶心", "呕吐"],
+        "onset_at": "2026-10-04T03:10:00+08:00",
+        "facility": "市一院急诊科"
+      }
+    },
+    {
+      "event_id": "evt-20261004-014",
+      "event_type": "CLUE_RECORDED",
+      "aggregate_type": "patient_episode",
+      "aggregate_id": "ep-0002",
+      "occurred_at": "2026-10-04T09:35:00+08:00",
+      "version": 2,
+      "summary": "乙出示手机识图结果，仅作线索登记",
+      "payload": {
+        "clue_kind": "ai_image",
+        "suspected_toxins": ["amatoxin"],
+        "source": "手机识图应用（患者自带）"
+      }
+    },
+    {
+      "event_id": "evt-20261004-014b",
+      "event_type": "IDENTITY_CONFIRMED",
+      "aggregate_type": "patient_episode",
+      "aggregate_id": "ep-0002",
+      "occurred_at": "2026-10-04T09:40:00+08:00",
+      "version": 3,
+      "summary": "乙持医保卡确认身份",
+      "payload": {"confirmed_by": "市一院急诊科"}
+    },
+    {
+      "event_id": "evt-20261004-015",
+      "event_type": "SPECIMEN_COLLECTED",
+      "aggregate_type": "specimen",
+      "aggregate_id": "sp-0001",
+      "occurred_at": "2026-10-04T10:00:00+08:00",
+      "version": 1,
+      "summary": "采集聚餐剩余蘑菇样本",
+      "payload": {
+        "incident_id": "inc-20261003-01",
+        "kind": "leftover",
+        "holder": "青川县医院急诊科"
+      }
+    },
+    {
+      "event_id": "evt-20261004-016",
+      "event_type": "PROVISIONAL_IDENTITY_OPENED",
+      "aggregate_type": "patient_episode",
+      "aggregate_id": "ep-0003",
+      "occurred_at": "2026-10-04T11:15:00+08:00",
+      "version": 1,
+      "summary": "区域中心收治身份未确认患者，建临时留观",
+      "payload": {
+        "presenting_facility": "区域中毒救治中心",
+        "descriptors": "男性，约50岁，意识清，未携带证件与手机"
+      }
+    },
+    {
+      "event_id": "evt-20261004-017",
+      "event_type": "SYMPTOM_RECORDED",
+      "aggregate_type": "patient_episode",
+      "aggregate_id": "ep-0003",
+      "occurred_at": "2026-10-04T11:20:00+08:00",
+      "version": 2,
+      "summary": "临时患者呕吐腹痛",
+      "payload": {
+        "symptoms": ["呕吐", "腹痛"],
+        "onset_at": "2026-10-04T04:00:00+08:00",
+        "facility": "区域中毒救治中心"
+      }
+    },
+    {
+      "event_id": "evt-20261004-018",
+      "event_type": "DINER_LINKED",
+      "aggregate_type": "meal_incident",
+      "aggregate_id": "inc-20261003-01",
+      "occurred_at": "2026-10-04T11:25:00+08:00",
+      "version": 8,
+      "summary": "临时患者疑似同餐者-丙，待身份确认",
+      "payload": {"diner_ref": "同餐者-丙", "link_basis": "suspected", "episode_id": "ep-0003"}
+    },
+    {
+      "event_id": "evt-20261004-019",
+      "event_type": "SPECIMEN_TRANSFERRED",
+      "aggregate_type": "specimen",
+      "aggregate_id": "sp-0001",
+      "occurred_at": "2026-10-04T14:20:00+08:00",
+      "version": 2,
+      "summary": "剩余蘑菇样本送区域中心毒理实验室",
+      "payload": {
+        "from_holder": "青川县医院急诊科",
+        "to_holder": "区域中毒救治中心毒理实验室",
+        "purpose": "毒素鉴定"
+      }
+    },
+    {
+      "event_id": "evt-20261004-020",
+      "event_type": "TRANSFER_ARRANGED",
+      "aggregate_type": "patient_episode",
+      "aggregate_id": "ep-0002",
+      "occurred_at": "2026-10-04T15:40:00+08:00",
+      "version": 4,
+      "summary": "乙转区域中心，床位 中毒中心-07",
+      "payload": {
+        "from_facility": "市一院急诊科",
+        "to_facility": "区域中毒救治中心",
+        "bed_id": "中毒中心-07",
+        "reason": "疑似鹅膏肽类中毒，需集中监护"
+      }
+    },
+    {
+      "event_id": "evt-20261004-021",
+      "event_type": "CONTACT_ATTEMPTED",
+      "aggregate_type": "meal_incident",
+      "aggregate_id": "inc-20261003-01",
+      "occurred_at": "2026-10-04T16:00:00+08:00",
+      "version": 9,
+      "summary": "联络同餐者-丁未接通",
+      "payload": {"target": "同餐者-丁", "channel": "phone", "outcome": "no_answer"}
+    },
+    {
+      "event_id": "evt-20261004-022",
+      "event_type": "CONTACT_ATTEMPTED",
+      "aggregate_type": "meal_incident",
+      "aggregate_id": "inc-20261003-01",
+      "occurred_at": "2026-10-04T16:05:00+08:00",
+      "version": 10,
+      "summary": "给同餐者-戊留言",
+      "payload": {"target": "同餐者-戊", "channel": "sms", "outcome": "message_left"}
+    },
+    {
+      "event_id": "evt-20261004-023",
+      "event_type": "CONTACT_ATTEMPTED",
+      "aggregate_type": "patient_episode",
+      "aggregate_id": "ep-0001",
+      "occurred_at": "2026-10-04T16:10:00+08:00",
+      "version": 7,
+      "summary": "电话召回复查，甲未接听",
+      "payload": {"target": "ep-0001", "channel": "phone", "outcome": "no_answer"}
+    },
+    {
+      "event_id": "evt-20261004-024",
+      "event_type": "EPISODES_MERGED",
+      "aggregate_type": "patient_episode",
+      "aggregate_id": "ep-0002",
+      "occurred_at": "2026-10-04T18:30:00+08:00",
+      "version": 5,
+      "summary": "值班误判临时患者与乙为同一人，并入 ep-0002",
+      "payload": {
+        "source_episode_id": "ep-0003",
+        "target_episode_id": "ep-0002",
+        "reason": "值班误判为同一人"
+      }
+    },
+    {
+      "event_id": "evt-20261004-025",
+      "event_type": "EPISODE_MERGE_REVERTED",
+      "aggregate_type": "patient_episode",
+      "aggregate_id": "ep-0002",
+      "occurred_at": "2026-10-04T19:05:00+08:00",
+      "version": 6,
+      "summary": "家属到院确认非同一人，撤销合并",
+      "payload": {
+        "merge_event_id": "evt-20261004-024",
+        "source_episode_id": "ep-0003",
+        "target_episode_id": "ep-0002",
+        "reason": "家属到院确认非同一人"
+      }
+    },
+    {
+      "event_id": "evt-20261004-026",
+      "event_type": "IDENTITY_CONFIRMED",
+      "aggregate_type": "patient_episode",
+      "aggregate_id": "ep-0003",
+      "occurred_at": "2026-10-04T19:10:00+08:00",
+      "version": 3,
+      "summary": "临时患者身份经证件核对确认",
+      "payload": {"confirmed_by": "区域中心接诊护士站"}
+    },
+    {
+      "event_id": "evt-20261005-027",
+      "event_type": "TOXIN_IDENTIFIED",
+      "aggregate_type": "specimen",
+      "aggregate_id": "sp-0001",
+      "occurred_at": "2026-10-05T09:20:00+08:00",
+      "version": 3,
+      "summary": "剩余蘑菇检出鹅膏肽类毒素",
+      "payload": {"toxin_class": "amatoxin", "method": "液相色谱-串联质谱"}
+    },
+    {
+      "event_id": "evt-20261005-028",
+      "event_type": "CONTACT_ATTEMPTED",
+      "aggregate_type": "patient_episode",
+      "aggregate_id": "ep-0001",
+      "occurred_at": "2026-10-05T10:00:00+08:00",
+      "version": 8,
+      "summary": "第二次电话召回复查，甲仍未接听",
+      "payload": {"target": "ep-0001", "channel": "phone", "outcome": "no_answer"}
+    },
+    {
+      "event_id": "evt-20261004-007",
+      "event_type": "SYMPTOM_RECORDED",
+      "aggregate_type": "patient_episode",
+      "aggregate_id": "ep-0001",
+      "occurred_at": "2026-10-04T01:20:00+08:00",
+      "version": 1,
+      "summary": "甲呕吐腹泻，进食后约6小时发病",
+      "payload": {
+        "symptoms": ["呕吐", "腹泻"],
+        "onset_at": "2026-10-04T00:30:00+08:00",
+        "facility": "青川县医院急诊科"
+      }
+    }
+  ]
+}
